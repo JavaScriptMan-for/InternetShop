@@ -1,0 +1,290 @@
+@mixin GridLayout ($count: 3, $fr: 1fr, $gap: 0px) {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat($count, $fr);
+    gap: $gap;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width: 1350px) {
+    .base {
+        grid-template-columns: repeat(3, 0.3fr) !important;
+    }
+            .product {
+                a {
+                    img {
+                        width: 200px !important;
+                        max-height: 300px !important;
+                    }
+                }
+                button {
+                    width: 200px !important;
+                    font-size: 15px !important;
+                }
+            }
+        }
+  
+@media screen and (max-width: 1050px) {
+    .pagination {
+        a {
+        font-size: 30px !important;
+        margin-right: 30px !important;
+        height: 30px !important;
+        }
+    }
+    .base {
+        grid-template-columns: repeat(3, 0.3fr) !important;
+    }
+    #get-products {
+        gap: 30px !important;
+    }
+}
+@media screen and (max-width: 930px) {
+    .product {
+        a {
+            img {
+                width: 150px !important;
+                height: 150px;
+            }
+        }
+        button {
+            width: 150px !important;
+        }
+    }
+}
+@media screen and (max-width: 860px) {
+    .base {
+        margin-top: 0 !important;
+        grid-template-columns: repeat(2, 0.4fr) !important;
+        gap: 30px !important;
+    }
+    .product {
+        margin-top: 0 !important;
+        a {
+            img {
+                width: 200px !important;
+                max-height: 300px !important;
+            }
+        }
+        button {
+            width: 200px !important;
+        }
+    }
+}
+@media screen and (max-width: 720px) {
+    #panel {
+        padding: 5px;
+        h2 {
+            font-size: 20px !important;
+        }
+        .category {
+            font-size: 15px !important;
+        }
+    }
+    #search-input {
+        width: 400px !important;
+        height: 40px !important;
+    }
+    .product {
+        margin-top: 0 !important;
+        a {
+            img {
+                width: 150px !important;
+                height: 100px !important;
+            }
+        }
+        button {
+            width: 150px !important;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    #panel {
+        display: none !important;
+    }
+    .base {
+        margin-left: 50px !important;
+        justify-content: center;
+        grid-template-columns: repeat(2, 0.4fr) !important;
+        gap: 30px !important;
+    }
+    .product {
+        height: fit-content !important;
+        margin-top: 0px !important;
+        a {
+            img {
+                width: 200px !important;
+                min-height: 180px !important;
+            }
+        }
+        button {
+            width: 200px !important;
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+
+    #search {
+        margin-bottom: 30px !important;
+        #search-input {
+            width: 300px !important;
+            height: 40px !important;
+        }
+    }
+
+    .product {
+        margin-top: 30px !important;
+        a {
+            img {
+                width: 150px !important;
+                min-height: 130px !important;
+            }
+        }
+        button {
+            width: 150px !important;
+        }
+    }
+}
+@media screen and (max-width: 550px) {
+    .product {
+        margin-top: 30px !important;
+        p {
+            font-size: 20px !important;
+        }
+        h1 {
+            font-size: 25px !important;
+        }
+        a {
+            img {
+                width: 120px !important;
+                min-height: 100px !important;
+            }
+        }
+        button {
+            width: 120px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 412px ) {
+        #search {
+        margin-bottom: 30px !important;
+        #search-input {
+            width: 250px !important;
+            height: 30px !important;
+        } 
+        button {
+            height: 30px !important;
+            img {
+                width: 24px !important;
+            }
+        }   
+    }
+    .product {
+        p {
+            font-size: 15px !important;
+        }
+        h1 {
+            font-size: 20px !important;
+        }
+        h2 {
+            font-size: 20px !important;
+        }
+        a {
+            img {
+                width: 100px !important;
+                min-height: 80px !important;
+            }
+        }
+        button {
+            width: 100px !important;
+        }
+    }
+}
+@media screen and (max-width: 330px) {
+    .base {
+        margin-left: 20px !important;
+    }
+    .product {
+        p {
+            font-size: 15px !important;
+        }
+        h1 {
+            font-size: 20px !important;
+        }
+        h2 {
+            font-size: 20px !important;
+        }
+        a {
+            img {
+                width: 90px !important;
+                min-height: 70px !important;
+            }
+        }
+        button {
+            width: 90px !important;
+        }
+    }
+}
+@media screen and (max-width: 300px) {
+    .product {
+        p {
+            font-size: 10px !important;
+        }
+        h1 {
+            font-size: 15px !important;
+        }
+        h2 {
+            font-size: 15px !important;
+        }
+        a {
+            img {
+                width: 70px !important;
+                min-height: 50px !important;
+            }
+        }
+        button {
+            width: 70px !important;
+            font-size: 10px !important;
+        }
+    }
+}
+@media screen and (max-width: 260px) {
+    #search {
+        gap: 10px !important;
+        #search-input {
+            width: 200px !important;
+            height: 30px !important;
+        } 
+        button {
+            width: 30px !important;
+            height: 30px !important;
+            img {
+                width: 20px !important;
+            }
+        }  
+    }
+    .base {
+        grid-template-columns: repeat(1, 0.5fr) !important;
+    }
+    .product {
+        p {
+            font-size: 15px !important;
+        }
+        h1 {
+            font-size: 20px !important;
+        }
+        h2 {
+            font-size: 20px !important;
+        }
+        a {
+            img {
+                width: 100px !important;
+                min-height: 80px !important;
+            }
+        }
+        button {
+            width: 100px !important;
+        }
+    }
+}

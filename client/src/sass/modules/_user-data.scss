@@ -1,0 +1,30 @@
+@use "./fonts";
+
+#user-info {
+    margin-top: 20px;
+    h1 {
+        color: white;
+        font-weight: bold;
+        font-family: "Overpass", sans-serif;
+    }
+    h2 {
+        color: wheat;
+        font-family: "NunitoSans", sans-serif;
+    }
+}
+.inline {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+        font-family: Arial, sans-serif;
+        font-size: 32px; 
+        color: white;
+        &.lazy {
+            font-size: 15px;
+        }
+    }
+}

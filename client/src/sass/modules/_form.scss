@@ -1,0 +1,210 @@
+@use "./fonts";
+@use "./vars";
+#div-form {
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+html {
+    width: 100%;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label {
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+        font-family: "NunitoSans", sans-serif;
+        &#photos {
+            width: 250px;
+            border: 1px dashed #9747FF;
+            text-align: center;
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+    }
+    h1 {
+        font-size: 40px;
+        font-family: "SourceCodePro", sans-serif;
+        color: rgb(165, 0, 55);
+        margin-bottom: 20px;
+    }
+    button {
+        width: 300px;
+        height: 40px;
+            &:disabled {
+                background-color: grey;
+                border: none;
+                cursor: not-allowed;
+            }
+    }
+    input {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 2px solid #9747FF;
+        width: 400px;
+        height: 50px;
+        font-size: 35px;
+        outline: none;
+        font-family: "Merriweather", sans-serif;
+        &::placeholder {
+            font-size: 20px;
+            font-family: "Merriweather", sans-serif;
+            color: grey;
+        }
+        &[type=file] {
+            display: none;
+        }
+    }
+    select {
+        margin-bottom: 20px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 2px solid #9747FF;
+        width: 400px;
+        height: 50px;
+        font-size: 20px;
+        outline: none;
+        font-family: "Merriweather", sans-serif;
+       
+    }
+    textarea {
+        margin-bottom: 20px;
+        padding: 10px;
+        outline: none;
+        border-radius: 12px;
+        border: 2px solid #9747FF;
+        width: 400px;
+        resize: vertical;
+        font-size: 20px;
+        font-family: "Merriweather", sans-serif;
+        min-height: 150px;
+        max-height: 300px;
+        &::placeholder {
+            font-size: 20px;
+            font-family: "Merriweather", sans-serif;
+            color: grey;
+        }
+    }
+}
+
+#price-input {
+    width: 300px;
+    text-align: center;
+}
+.validation-error {
+    text-align: center;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Overpass", sans-serif;
+}
+#password {
+    display: flex;
+    flex-direction: column;
+}
+.eye {
+    width: 32px;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 350px;
+}
+@media screen and (max-width: 480px) {
+    form {
+        margin-left: 40px;
+        a {
+           font-size: 20px;
+        }
+        .eye {
+            margin-left: 330px;
+        }
+    }
+}
+@media screen and (max-width: 430px) {
+        form {
+            .eye {
+                margin-top: 15px;
+                margin-left: 250px;
+                width: 24px;
+            }
+            input {
+                width: 300px;
+                font-size: 30px;
+            }
+            textarea {
+                width: 300px;
+            }
+            button {
+                width: 250px;
+            }
+            #price-input {
+                width: 200px;
+                font-size: 25px;
+            }
+            label {
+                &#photos {
+                    width: 200px;
+                    height: 140px;
+                }
+            }
+            select {
+                width: 300px;
+                font-size: 20px;
+                option {
+                    font-size: 15px;
+                }
+            }
+            a {
+                font-size: 17px;
+            }
+        }
+}
+@media screen and (max-width: 320px) {
+    form {
+        .eye {
+            margin-left: 160px;
+        }
+        margin-left: 40px;
+        label {
+            font-size: 25px;
+        }
+        input {
+            width: 200px;
+            font-size: 15px;
+        }
+        textarea {
+            width: 200px;
+        }
+        #price-input {
+            width: 150px;
+            &::placeholder {
+                font-size: 15px;
+            }
+        }
+        label {
+            &#photos {
+                width: 150px;
+                height: 120px;
+                padding: 25px;
+            }
+        }
+        select {
+            width: 200px;
+            
+        }
+        button {
+            width: 200px;
+        }
+        a {
+            font-size: 15px;
+        }
+    }
+}

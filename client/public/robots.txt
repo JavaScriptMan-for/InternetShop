@@ -1,0 +1,15 @@
+User-agent: *
+
+Disallow: /basket/
+Disallow: /product/
+Disallow: /my-profile/
+Disallow: /login/
+Disallow: /register/
+Disallow: /verify/
+Disallow: /forgot-password/
+Disallow: /not-found/
+
+Allow: /products/
+Allow: /add-product/
+
+Sitemap: https://accessfull.ru/Sitemap.xml
