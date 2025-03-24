@@ -9,7 +9,7 @@ interface Props {
 const OpenGraph:FC<Props> = ({ product }) => {
   const title = product?.title || 'Название по умолчанию';
   const description = product?.description || 'Описание по умолчанию';
-  const imageUrl = `${import.meta.env.VITE_URL}${product.favicon}` || '/img/default.png';  // Укажите путь к изображению по умолчанию
+  const imageUrl = import.meta.env.MODE === 'production' ? product.favicon : `${import.meta.env.VITE_URL}/${product.favicon}`
   const productUrl = `${window.location.origin}/product/${product?._id}`; // Полный URL страницы
 
   return (
