@@ -3,12 +3,12 @@ import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
 
 import { setIsSend } from '@slices-my/additionallySlice'
 import { setEmail } from '@slices-my/clientSlice';
 import Cookies from 'js-cookie';
 import { RootState } from 'store/store';
+import H from './H';
 
 const SendToEmail:FC = () => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const SendToEmail:FC = () => {
     <div id='div-form'>
 
        <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Забыл пароль</h1>
+        <H isCenter={true}>Забыл пароль:</H>
         {errors.email && <p className='validation-error'>{errors.email.message}</p>}
         <input
          placeholder='Email'
@@ -67,7 +67,6 @@ const SendToEmail:FC = () => {
       {mutation.error && <p className='error'>{mutation.error.message}</p>}
 
         <button disabled={!isValid} type='submit'>Отправить письмо</button>
-        <Link style={{marginTop: '20px'}} to="/login">Назад</Link>
        </form>
     </div>
   )

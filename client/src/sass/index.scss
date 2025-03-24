@@ -249,7 +249,7 @@ main {
     box-shadow: 3px 5px 12px rgba(170, 170, 170, 0.25);
     border-radius: 12px;
     border: 1px solid var(--standard-color);
-    width: 528px;
+    width: 400px;
     margin-right: 20px;
 }
 .success {
@@ -600,4 +600,39 @@ input[type="password"]::-ms-reveal {
         font-size: 15px;
     }
   }
+}
+#header {
+    h1 {
+        font-size: 40px;
+    }
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    img {
+        width: 36px;
+        user-select: none;
+    }
+}
+@media screen and (max-width: 400px) {
+    #header {
+        margin-bottom: 10px;
+        h1 {
+            font-size: 30px;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+@media screen and (max-width: 350px) {
+    #header {
+        img {
+            width: 22px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+    }
 }

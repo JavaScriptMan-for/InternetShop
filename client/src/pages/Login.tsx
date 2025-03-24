@@ -8,6 +8,7 @@ import { useMutation } from '@tanstack/react-query';
 import Cookies from 'js-cookie';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
+import H from '@components/H';
 
 const Login:FC = () => {
   const {handleSubmit, register, formState: {errors, isValid}, setValue} = useForm<User>({mode: "onBlur"})
@@ -57,7 +58,7 @@ const Login:FC = () => {
   return (
     <div id='div-form'>
       <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Авторизация</h1>
+      <H isBack={false} isCenter={true}>Авторизация:</H>
        <label htmlFor="email-input">Email:</label>
        {errors.email && <p className='validation-error'>{errors.email.message}</p>}
        <input
@@ -102,9 +103,8 @@ const Login:FC = () => {
       <button disabled={!isValid} type='submit'>Войти</button>
       {mutation.isPending && <p className='loading'>Загрузка...</p>}
       {mutation.isError && <p className='error'>{mutation.error?.message || 'Произошла ошибка'}</p>}
-      {isSuccess && <p className='success'>Письмо с кодом отправлено на почту</p>}
+      {isSuccess && <p className='success'>Вы успешно вошли в аккаунт</p>}
       <Link style={{marginTop: '20px'}} to="/register">Нет аккаунта? Зарегистрируйтесь.</Link>
-      <Link to='/products'>Назад</Link>
     </form>
     </div>
   )

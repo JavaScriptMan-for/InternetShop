@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import getCategories from '@methods/getCategories.query';
 import { Categories } from '@types-my/query.type';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import H from '@components/H';
 
 const Categories_page:FC = () => {
-    const navigate = useNavigate();
     const categories = useQuery({
         queryKey: ['categories'],
         queryFn: getCategories
@@ -13,13 +13,12 @@ const Categories_page:FC = () => {
   return (
     <>  
     <div id='categories'>
-        <h1>Категории:</h1>
+        <H>Категории:</H>
         <Link to="/products">Все товары</Link>
         {categories.data?.map((category: Categories) => 
             <Link to={`/products/${category.name}`} key={category._id}>{category.name}</Link>
         )}
     </div>
-    <Link style={{color: "white", marginLeft: '10px'}} to="" onClick={() => navigate(-1)}>Назад</Link>
     </>
   )
 }

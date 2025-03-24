@@ -1,12 +1,15 @@
 import { FC, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Products } from '@types-my/query.type';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Slider from '@components/Slider';
 import Button from "@components/Add_basket_button"
 import Cookies from 'js-cookie';
+import OpenGraph from '@components/OpenGraph';
+import H from '@components/H';
+
+
 const Product:FC = () => {
-  const navigate = useNavigate()
   const [error, setError] = useState<string>('')
   const {id} = useParams()
   const hasItem = useQuery({
@@ -50,8 +53,10 @@ const Product:FC = () => {
       {isLoading && !isError && <p className='loading'>Загрузка</p>}
       {isError && <p className='error'>{error}</p>}
     { data && !isError &&
+      <>
+          <OpenGraph product={data}/>
       <div id='one_product'>
-       <h1>{data?.title}</h1>
+       <H>{data?.title}</H>
        <h2><span className='option'>Цена:</span>{`${data?.price}₽`}</h2>
        <h2><span className='option'>Категория:</span>{data?.category}</h2>
        <h2><span className='option'>Описание:</span>{data?.description}</h2>
@@ -59,8 +64,8 @@ const Product:FC = () => {
         <Slider data={data?.images} />
         { hasItem && !hasItem.isLoading && !hasItem.isError && !hasItem.data && <Button product_id={data._id}>Добавить в корзину</Button>}
         <h1>{hasItem.data}</h1>
-        <Link onClick={() =>navigate(-1)} to="">Вернуться назад</Link>
     </div>
+    </>
     }
     </>
     

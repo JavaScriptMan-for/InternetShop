@@ -1,4 +1,5 @@
 import "../src/sass/index.scss"
+import { HelmetProvider } from 'react-helmet-async';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
@@ -12,12 +13,14 @@ const Query_client = new QueryClient();
 createRoot(document.getElementById('root')!).render(
 
   <StrictMode>
-      <BrowserRouter>
+    <HelmetProvider>
+    <BrowserRouter>
       <QueryClientProvider client={Query_client}>
       <Provider store={store}>
     <App />
     </Provider>
     </QueryClientProvider>
     </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 )

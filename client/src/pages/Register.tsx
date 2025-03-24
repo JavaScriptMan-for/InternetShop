@@ -8,6 +8,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setStep } from '../../store/slices/clientSlice'
 import { setUserData } from '../../store/slices/clientSlice';
+import H from '@components/H';
 const Register:FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ const Register:FC = () => {
   return (
     <div id='div-form'>
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Регистрация</h1>
+      <H isBack={false} isCenter={true}>Регистрация</H>
        <label htmlFor="email-input">Email:</label>
        {errors.email && <p className='validation-error'>{errors.email.message}</p>}
        <input
@@ -149,7 +150,6 @@ const Register:FC = () => {
       {mutation.isError && <p className='error'>{mutation.error?.message || 'Произошла ошибка'}</p>}
       {isSuccess && <p className='success'>Письмо с кодом отправлено на почту</p>}
       <Link style={{marginTop: '20px'}} to="/login">Есть аккаунт? Авторизуйтесь.</Link>
-      <Link to='/products'>Назад</Link>
     </form>
     </div>
   )

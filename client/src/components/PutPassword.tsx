@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { IFagotPassword } from '@types-my/form.type';
 import { RootState } from 'store/store';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from "@tanstack/react-query"
 import { setEmail } from '@slices-my/clientSlice';
 import { setIsSend } from '@slices-my/additionallySlice';
@@ -11,8 +11,11 @@ import { setIsSend } from '@slices-my/additionallySlice';
 import trueEye from "/img/trueEyes.png"
 import falseEye from "/img/falseEyes.png"
 import Cookies from 'js-cookie';
+import H from './H';
 
 const PutPassword:FC = () => {
+
+
   const [enabled, setEnabled] = useState<boolean>(false);
   const [typePassword, setTypePassword] = useState<string>('password')
 
@@ -80,7 +83,7 @@ const PutPassword:FC = () => {
   return (
     <div id='div-form'>
        <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Изменить пароль</h1>
+        <H isCenter={true} isBack={false}>Изменить пароль</H>
         <label htmlFor="input-code">Код:</label>
         {errors.code_verify && <p className='validation-error'>{errors.code_verify.message}</p>}
        
@@ -137,7 +140,6 @@ const PutPassword:FC = () => {
       {mutation.error && <p className='error'>{mutation.error.message}</p>}
 
              <button style={{marginBottom: '20px'}} disabled={!isValid} type="submit">Изменить пароль</button>
-             <Link to="/login">Назад</Link>
        </form>
     </div>
   )

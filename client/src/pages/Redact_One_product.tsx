@@ -1,7 +1,8 @@
 import { FC, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Products } from '@types-my/query.type';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import H from '@components/H';
 import Dialog from '../components/Dialog';
 import Slider from '../components/Slider';
 import Cookies from 'js-cookie';
@@ -14,7 +15,6 @@ const RedactProduct:FC = () => {
   const isShow = useSelector((state: RootState) => state.additionally.isShow)
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const {id} = useParams()
 
   const [error, setError] = useState<string>('')
@@ -51,15 +51,13 @@ const RedactProduct:FC = () => {
       {isError && <p className='error'>{error}</p>}
     { data && !isError &&
       <div id='one_product'>
-       <h1>{data?.title}</h1>
+       <H>{data?.title}</H>
        <h2><span className='option'>Цена:</span>{`${data?.price}₽`}</h2>
        <h2><span className='option'>Категория:</span>{data?.category}</h2>
        <h2><span className='option'>Описание:</span>{data?.description}</h2>
        {!isShow && <span className='option'>Фотографии:</span>}
         {!isShow &&  <Slider data={data?.images} />}
         <button onClick={showDialog} id='redact' type="button">{name}</button>
-        <Link onClick={() =>navigate(-1)} to="">Вернуться назад</Link>
-
     </div>
     }
     </>
