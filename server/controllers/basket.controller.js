@@ -8,7 +8,7 @@ class BasketController {
     async getItems (req, res) {
         try {
             const user = req.user;
-            if(!user) return res.status(400).json({message: "Вы не авторизованы"})
+            if(!user) return res.status(401).json({message: "Вы не авторизованы"})
             
             const get_products_in_basket = await Basket.find({userId: user.userId})
             if(!get_products_in_basket) return res.status(400).json({message: "Не удалось получить товары из корзины"})
@@ -25,7 +25,7 @@ class BasketController {
            const id = req.params.id;
            const user = req.user
            
-            if(!user) return res.status(400).json({message: "Вы не авторизованы"})
+            if(!user) return res.status(401).json({message: "Вы не авторизованы"})
 
            if (!isValidObjectId(id)) return res.status(400).json({message: "Некорректный id"})
 
@@ -76,7 +76,7 @@ class BasketController {
             if(!isValidObjectId(id)) return res.status(400).json({message: "Некорректный id"});
             
             const user = req.user;
-            if(!user) return res.status(400).json({message: "Вы не авторизованы"})
+            if(!user) return res.status(401).json({message: "Вы не авторизованы"})
 
             const count = await Basket.findById(id);
             if(!count) return res.status(400).json({message: "Не удалось найти товар"});
@@ -112,7 +112,7 @@ class BasketController {
             if(!isValidObjectId(id)) return res.status(400).json({message: "Некорректный id"});
             
             const user = req.user;
-            if(!user) return res.status(400).json({message: "Вы не авторизованы"})
+            if(!user) return res.status(401).json({message: "Вы не авторизованы"})
 
             const count = await Basket.findById(id);
             if(!count) return res.status(400).json({message: "Не удалось найти товар"});
@@ -154,7 +154,7 @@ class BasketController {
             if(!isValidObjectId(id)) return res.status(400).json({message: "Некорректный id"});
             
             const user = req.user;
-            if(!user) return res.status(400).json({message: "Вы не авторизованы"})
+            if(!user) return res.status(401).json({message: "Вы не авторизованы"})
 
             const find_count = await Basket.findById(id);
             if(!find_count) return res.status(404).json({message: "Продукт не найден"})

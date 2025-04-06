@@ -7,7 +7,7 @@ function authenticateToken(req, res, next) {
     if (token == null) return res.status(401).json({message: "Вы не авторизованы"});
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(400).json({message: "Вы не авторизованы"}); 
+        if (err) return res.status(401).json({message: "Вы не авторизованы"}); 
 
         req.user = user; 
         next(); 

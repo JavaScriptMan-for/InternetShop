@@ -636,3 +636,21 @@ input[type="password"]::-ms-reveal {
         }
     }
 }
+
+.account-methods {
+    margin-left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    img {
+        width: 54px;
+    }
+    span {
+        font-size: 25px;
+        font-family: Verdana, sans-serif;
+        font-weight: bold;
+        color: white;
+    }
+}
+

@@ -43,15 +43,15 @@ const Login:FC = () => {
   }
     const [isSuccess, setIsSuccess] = useState<boolean>(false)
     const [typePassword,  setTypePassword] = useState<string>('password');
-    const [enabled, setEnabled] = useState<boolean>(false)
+    const [enabled, setEnabled] = useState<boolean>(true)
 
     const showPassword = () => {
-      setEnabled((prev) => !prev)
       if(enabled) {
         setTypePassword('text')
       } else {
         setTypePassword('password')
       }
+      setEnabled((prev) => !prev)
     }
 
 
@@ -95,8 +95,8 @@ const Login:FC = () => {
             />
            {
            enabled
-            ? <img className='eye' onClick={showPassword} src={trueEye} alt="открыто" />
-            : <img className='eye' onClick={showPassword} src={falseEye} alt="закрыто" />
+           ? <img className='eye' onClick={showPassword} src={falseEye} alt="открыто" />
+           : <img className='eye' onClick={showPassword} src={trueEye} alt="закрыто" />
            }
          </div>
          <Link style={{marginBottom: '20px'}} to="/fagot-password">Забыл пароль?</Link>

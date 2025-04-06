@@ -244,7 +244,7 @@ class MethodsProduct {
 
             const get_my_product = await My_product.findOne({ _id: id })
             if (!get_my_product) return res.status(404).json({ message: "Такой товар не найден" })
-            if (String(get_my_product.userId) !== String(user.userId)) return res.status(400).json({ message: "Вы не авторизованы" })
+            if (String(get_my_product.userId) !== String(user.userId)) return res.status(401).json({ message: "Вы не авторизованы" })
 
             res.status(200).json({ message: "Удалось получить товар User", get_my_product })
 

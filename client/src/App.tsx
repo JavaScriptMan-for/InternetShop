@@ -55,13 +55,28 @@ const App:FC = () => {
   }, [Cookies.get('jwt')])
   useEffect(()=> {
     const l = location.pathname
-    if(!isAuth && l == '/profile') {
+    if(!isAuth && l === '/profile') {
         navigate('/')
     }
-    if(isAuth && l == "/login") {
+    if(isAuth && l === "/login") {
       navigate('/')
     }
-    if(isAuth && l == "/register") {
+    if(isAuth && l === "/register") {
+      navigate('/')
+    }
+    if(isAuth && l === "/fagot-password") {
+      navigate('/')
+    }
+    if(isAuth && l === "/verify") {
+      navigate('/')
+    }
+    if(!isAuth && l === '/basket') {
+      navigate('/')
+    }
+    if(!isAuth && l === '/add-product') {
+      navigate('/')
+    }
+    if(!isAuth && l.startsWith('/get-one-my/')) {
       navigate('/')
     }
   }, [location])

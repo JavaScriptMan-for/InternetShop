@@ -14,7 +14,7 @@ const Register:FC = () => {
   const navigate = useNavigate();
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const [typePassword,  setTypePassword] = useState<string>('password');
-  const [enabled, setEnabled] = useState<boolean>(false)
+  const [enabled, setEnabled] = useState<boolean>(true)
   const {
     register, handleSubmit,watch, formState: {
       isValid, errors
@@ -49,12 +49,12 @@ const Register:FC = () => {
     }
   })
   const showPassword = () => {
-    setEnabled((prev) => !prev)
     if(enabled) {
       setTypePassword('text')
     } else {
       setTypePassword('password')
     }
+    setEnabled((prev) => !prev)
   }
   const onSubmit = async (data: User) => {
     mutation.mutate(data)
@@ -98,8 +98,8 @@ const Register:FC = () => {
             />
            {
            enabled
-            ? <img className='eye' onClick={showPassword} src={trueEye} alt="открыто" />
-            : <img className='eye' onClick={showPassword} src={falseEye} alt="закрыто" />
+            ? <img className='eye' onClick={showPassword} src={falseEye} alt="открыто" />
+            : <img className='eye' onClick={showPassword} src={trueEye} alt="закрыто" />
            }
          </div>
          <label htmlFor="password-input-verify">Повторить пароль:</label>

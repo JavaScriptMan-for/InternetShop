@@ -3,7 +3,7 @@ const router = new Router();
 const {check} = require('express-validator')
 const authenticateToken = require('../middlewares/protected.middleware')
 
-const {register, login, verify, protected, fagotPassword, putPassword } = require('../controllers/auth.controller')
+const {register, login, verify, protected, fagotPassword, putPassword, logout, deleteAccount } = require('../controllers/auth.controller')
 
 router.post('/users/register',[
     check('email', "email: Некорректный email").isEmail(),
@@ -36,5 +36,8 @@ router.put('/users/put-password', [
     check('email', "email:  Это поле не может быть пустым").notEmpty(),
     check('code_verify', "Некорректный код").isLength({max: 6, min: 6})
 ], putPassword)
+
+router.head('/users/logout', authenticateToken, logout)
+router.delete('/users/delete-account', authenticateToken, deleteAccount)
 
 module.exports = router;

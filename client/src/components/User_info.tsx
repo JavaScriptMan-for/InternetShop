@@ -3,6 +3,9 @@ import { useQuery } from '@tanstack/react-query';
 import { UserData } from '@types-my/query.type';
 import userImg from "/img/user.png"
 import Cookies from 'js-cookie';
+import Out from './Out';
+import Logout from './Logout';
+
 const User_info:FC = () => {
     const {data, isLoading, isError, error} = useQuery({
         queryKey: ['get-user-data'],
@@ -36,6 +39,8 @@ const User_info:FC = () => {
         <span className="option">Пол:</span>
         <p>{data?.gender === 'man' ? 'Мужской' : 'Женский'}</p>
        </div>
+        <Out />
+        <Logout />
     </div>
     }
     </>

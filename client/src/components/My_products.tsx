@@ -43,7 +43,7 @@ const My_products:FC = () => {
   }
   return (
     <>
-    <span className='option' id='h2_profile' style={{marginBottom: '20px'}}>Ваши продукты:</span>
+    <span className='option' id='h2_profile' style={{marginBottom: '30px'}}>Ваши продукты:</span>
     <div id='get-my-products'>
 
       <div className="base">

@@ -154,6 +154,33 @@ class AuthController {
             res.status(500).json({message: "Ошибка сервера при изменении пароля"})
         }
     }
+    async logout (req, res) {
+        try {
+            res.status(200).clearCookie('jwt', {
+                httpOnly: true,
+                sameSite: 'None', 
+                secure: true,    
+            }).json({ message: "Успешно вышли из аккаунта" });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({message: "Ошибка сервера при выходе из аккаунта"})
+        }
+    }
+    async deleteAccount (req, res) {
+        try {
+           const user = req.user
+            if(!user) return res.status(401).json({message: "Вы не авторизованы"})
+
+           const deleteAccountVar = await User.findByIdAndDelete(user.userId)
+           if(!deleteAccountVar) return res.status(400).json({message: "Не удалось удалить аккаунт"})
+
+            res.status(200).json({message: "Вы успешно удалили аккаунт"})
+            
+        } catch (error) {
+            console.error(error);
+            res.status(500)    
+        }
+    }
 }
 
 module.exports = new AuthController();
